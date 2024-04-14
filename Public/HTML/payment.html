@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Pannel</title>
+    <link rel="stylesheet" href="/Public/CSS/admin.css">
+    <link rel="stylesheet" href="/Public/CSS/adminMedia.css">
+    <link rel="stylesheet" href="/Public/CSS/style.css">
+    <link rel="stylesheet" href="/Public/CSS/media.css">
+    <link rel="stylesheet" href="/Public/CSS/utils.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="shortcut icon" href="/Assets/YourPrints_logo.png" type="image/x-icon" sizes="48x48">
+</head>
+<body class="body" ng-app="myApp">
+      <div class="grid-container grid">
+        <!-- Header -->
+        <header class="header d-flex justify-content-between align-items-center">
+          <div class="menu-icon" onclick="openSidebar()">
+            <span class="material-icons">menu</span>
+          </div>
+          <div class="header-left">
+            <img src="/Assets/YourPrints_logo.png" alt="LOGO" height="40vh">
+          </div>
+          <div class="header-right">
+            <span class="material-icons">notifications</span>
+            <span class="material-icons">email</span>
+            <span class="material-icons">account_circle</span>
+          </div>
+        </header>
+        <!-- End-header -->
+
+        <!-- Sidebar -->
+        <aside id="sidebar">
+          <div class="sidebar-title d-flex justify-content-between align-items-center p-1">
+            <div class="sidebar-brand mt-1">
+              <span class="material-icons">dashboard</span> Admin Dashboard
+            </div>
+            <span class="material-icons" id="close" onclick="closeSidebar()">close</span>
+          </div>
+          <ul class="sidebar-list">
+            <li class="sidebar-list-item p-1">
+              <span class="material-icons">poll</span> <a href="#/!">Overall Analysis</a>
+            </li>
+            <li class="sidebar-list-item p-1">
+              <span class="material-icons">post_add</span> <a href="#!add-product">Add Product</a>
+            </li>
+            <li class="sidebar-list-item p-1">
+              <span class="material-icons">edit</span> <a href="#!update-product">Update Product</a>
+            </li>
+            <li class="sidebar-list-item p-1">
+              <span class="material-icons">inventory_2</span> <a href="#!view-product">View Products</a>
+            </li>
+            <li class="sidebar-list-item p-1">
+              <span class="material-icons">add_shopping_cart</span> <a href="#!purchase">Purchase Orders</a>
+            </li>
+            <li class="sidebar-list-item p-1">
+              <span class="material-icons">shopping_cart</span> <a href="#!sales">Sales Orders</a>
+            </li>
+          </ul>
+        </aside>
+        <!-- End-sidebar -->
+
+        <!-- Main -->
+        <main class="main-container p-3">
+          <div class="main-title d-flex justify-content-between">
+            <p class="font-weight-bold">Dashboard</p>
+          </div>
+          <div class="main-cards grid">
+        
+            <div class="card flex">
+              <div class="card-inner d-flex justify-content-between align-items-center">
+                <p class="text-primary">Products</p>
+                <span class="material-icons text-blue">inventory_2</span>
+              </div>
+              <span class="text-primary font-weight-bold">249</span>
+            </div>
+        
+            <div class="card flex">
+              <div class="card-inner d-flex justify-content-between align-items-center">
+                <p class="text-primary">Purchase Orders</p>
+                <span class="material-icons text-orange">add_shopping_cart</span>
+              </div>
+              <span class="text-primary font-weight-bold">83</span>
+            </div>
+        
+            <div class="card flex">
+              <div class="card-inner d-flex justify-content-between align-items-center">
+                <p class="text-primary">Sales Orders</p>
+                <span class="material-icons text-green">shopping_cart</span>
+              </div>
+              <span class="text-primary font-weight-bold">79</span>
+            </div>
+        
+          </div>
+          <div class="order-table grid mt-5">
+            <table class="p-2">
+              <thead>
+                <tr class="order-table-heading">
+                  <th colspan="6">Recent Orders</th>
+                </tr>
+                <tr class="order-table-head-row">
+                  <td>Order</td>
+                  <td>Date</td>
+                  <td>VIA</td>
+                  <td>Amount</td>
+                  <td>Status</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Feb 9th 2024</td>
+                  <td>Cash</td>
+                  <td>499</td>
+                  <td class="status shipped">
+                    <span>Shipped</span>
+                  </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Feb 9th 2024</td>
+                    <td>Cash</td>
+                    <td>499</td>
+                    <td class="status shipped">
+                      <span>Shipped</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>Feb 9th 2024</td>
+                    <td>Cash</td>
+                    <td>499</td>
+                    <td class="status shipped">
+                      <span>Shipped</span>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>        
+          </div>
+        </main>
+        <!-- End-main -->
+      </div> 
+            
+<!-- Custom Js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+<script src="/Public/JS/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "name": "custome-t-shirt-printing",
+  "version": "1.0.0",
+  "description": "A customized tshirt printing e-commerce website ",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./router/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Runalipokale/YourPrints_copy.git"
+  },
+  "author": "Runali Pokale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Runalipokale/YourPrints_copy.git"
+  },
+  "homepage": "https://github.com/Runalipokale/YourPrints_copy.git",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie": "^0.6.0",
+    "dotenv": "^16.4.1",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "express-mysql-session": "^3.0.0",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.7.0",
+    "nodemailer": "^6.9.13",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemon": "^3.0.2",
+    "nvm": "^0.0.4",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.37.3",
+    "stripe": "^14.23.0"
+  }
+}

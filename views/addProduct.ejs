@@ -1,0 +1,87 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/CSS/admin.css">
+<link rel="stylesheet" href="/CSS/adminMedia.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body class="body">
+  <div class="grid-container grid">
+  <%- include('./includes/adminHeader.ejs') %>  
+    <%- include('./includes/admin-sidebar.ejs') %>  
+
+    <!-- Main -->
+    <main class="main-container p-2">
+      <div class="main-title">
+        <p class="font-weight-bold">Add Product</p>
+      </div>
+      <div class="add-prod-form py-1 grid">
+        <form action="/admin/product" method="post" class="px-5 py-5">
+            <h1>Add New Product</h1>
+            <div class="user-box mt-2">
+                <input class="px-1 py-1" type="text" name="title" id="" placeholder="Enter product name">
+            </div>
+            <div class="user-box mt-2">
+                <input class="px-1 py-1" type="text" name="price" id="" placeholder="E.g. 100Rs">
+            </div>
+            <div class="user-box mt-2">
+                <fieldset class="px-1 d-flex">
+                  <legend class="my-1">Gender</legend>
+                    <label for="male">Male</label>
+                    <input class="radio-btn" type="radio" id="male" name="gender">
+                    <label for="female">Female</label>
+                    <input class="radio-btn" type="radio" id="female" name="gender">
+                </fieldset>
+            </div>
+            <div class="user-box mt-2">
+                <select name="category" id="" class="px-1 py-1">
+                    <option value="">Select</option>
+                    <option value="t-shirt">T-shirt</option>
+                    <option value="sweatshirt">Sweatshirt</option>
+                    <option value="hoodies">Hoodies</option>
+                    <option value="oversized-tshirt">Oversized T-shirt</option>
+                    <option value="crop-tshirt">Crop T-shirt</option>
+                </select>
+            </div>
+            <div class="user-box mt-2">
+                <input class="px-1 py-1" type="text" name="imageUrl" id="" placeholder="Image URL">
+            </div>
+            <div class="user-box mt-2">
+                <input class="px-1 py-1" type="text" name="description" id="" placeholder="Description">
+            </div>  
+            <div class="button-form px-1 py-1 mt-2 d-flex align-items-center justify-content-center">
+              <div class="btn-outline p--5"><button class="btn-outline-inner px-5 py-1">Add Product</button></div>
+            </div>
+          </form> 
+        </form>
+      </div>
+      
+    </main>
+    <!-- End-main -->
+
+  <!-- <div class="d-flex justify-content-center align-items-center">
+        <div class="add-product-form mt-3 d-flex justify-content-center align-items-center">
+            <div class="add-product-body p-5">
+                  <form action="/admin/product" method="post">
+                    <div class="field my-5">
+                      <input type="text" name="title" id="" placeholder="Product title">
+                    </div>
+                    <div class="field my-5">
+                      <input type="text" name="price" id="" placeholder="Price">
+                    </div>
+                    <div class="field my-5">
+                        <input type="text" name="imageUrl" id="" placeholder="ImageUrl">
+                    </div>
+                    <div class="field my-5">
+                      <textarea name="description" id="" cols="40" rows="4" placeholder="Product description"></textarea>
+                    </div>
+                    <div class="button-form px-1 py-1 d-flex align-items-center justify-content-center">
+                        <div class="log-btn-wrap px-1 py-1">
+                          <button class="log-btn px-5 py-2" type="submit">Add Product</button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+        </form>
+    </div>
+  </div> -->
+</body>

@@ -1,0 +1,100 @@
+<%- include('../views/includes/head.ejs') %>
+</head>
+<body>
+    <!-- Header -->
+    <%- include('../views/includes/header2.ejs') %>
+    <!-- End-header -->
+
+    <!-- main Container -->
+    <main class="mt-5 mx-2 my-5">
+        <% if (cart.length > 0) { %>
+            <h2>Cart</h2>
+            <div class="cart-container mt-3 d-flex p-3">
+                <div class="cart-items">
+                    <table>
+                        <tr>
+                            <th>Product details</th>
+                            <th>Size</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Remove</th>
+                        </tr>
+                        <% for (let carts of cart) { %>
+                            <tr class="mt-3">
+                                <td class="d-flex">
+                                    <img src="<%= carts.productImg %>" alt="">
+                                    <div class="cart-prod-details mx-1">
+                                        <h3><%= carts.productTitle %></h3>
+                                        <p><%= carts.productDescription %></p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="size-border"><%= carts.size %></span>
+                                </td>
+                                <td>
+                                    <div class="cart-btns d-flex justify-content-center">
+                                        <button class="func-btn negative" id="sub">-</button>
+                                        <button class="func-btn func-num"><%= carts.quantity %></button>
+                                        <button class="func-btn positive" id="add">+</button>
+                                    </div>
+                                </td>
+                                <td><%= carts.productPrice %></td>
+                                <td>
+                                    <form action="/remove" method="post">
+                                        <input type="hidden" name="productId" value="<%= carts.productId %>">
+                                        <button class="remove">
+                                            <span class="remove-btn material-symbols-outlined">close</span>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </table>
+                    <div class="cart-main-btn d-flex mt-3">
+                        <form class="btn-outline p--5" action="/product">
+                            <button class="continue-shop-btn btn-outline-inner px-5 py-1">Continue Shopping</button>
+                        </form>
+                        <form action="/checkout" method="get">
+                            <div class="btn-outline p--5 mx-1">
+                                <button class="checkout-btn px-5 py-1">Checkout</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="cart-details mx-4 p-2">
+                    <div class="cart-detail-box">
+                        <div class="p-1">
+                            <h3>Selected Items Summary</h3>
+                        </div>
+                        <% 
+                            // Calculate productsTotal
+                            const productsTotal = cart.reduce((acc, item) => acc + (item.productPrice * item.quantity), 0);
+                            // Calculate GST
+                            const GST = Math.round(0.18 * productsTotal);
+                            // Calculate total
+                            const total = productsTotal + GST;
+                        %>
+                        <div class="product-amount d-flex justify-content-between p-1 mt-2">
+                            <div class="product-amount-tag">Product Total</div>
+                            <div class="product-amount-price"><%= productsTotal %></div>
+                        </div>
+                        <div class="product-gst d-flex justify-content-between p-1">
+                            <div class="product-gst-tag">GST (18%)</div>
+                            <div class="product-gst-price"><%= GST %></div>
+                        </div>
+                        <hr>
+                        <div class="total d-flex justify-content-between p-1">
+                            <div class="total-tag">Total</div>
+                            <div class="total-price"><%= total %></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } else { %>
+            <h1 class="text-center">Cart is Empty</h1>
+        <% } %>
+    </main>
+    <%- include('../views/includes/footer.ejs') %>
+    <script src="/Public/JS/index.js"></script>
+</body>
+</html>

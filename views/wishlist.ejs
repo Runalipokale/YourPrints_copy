@@ -1,0 +1,43 @@
+<%- include('../views/includes/head.ejs') %>
+<link rel="stylesheet" href="/CSS/product.css">
+</head>
+<body>
+    <%- include('../views/includes/header.ejs') %>
+    <main class="main-container">
+      <div class="product-container my-4">
+          <% if (list.length > 0) { %>
+                <% for (let wishlist of list) { %>
+          <article class="product-block">
+            <a href="/products/<%= wishlist.productId %>" class="btn"><img class="product__img" src="<%= wishlist.productImg %>" alt="<%= wishlist.productTitle %>"></a>
+                      <div class="product-data">
+                        <h2 class="product-title"><%= wishlist.productTitle %></h2>
+                        <span class="product-desc"><%= wishlist.productDescription %></span>
+                        <br>
+                        <div class="btn-div d-flex">
+                          <form action="/cart" class="addcart-btn d-flex" method="post">
+                            <input type="hidden" value="<%= wishlist.productId %>" name="productId">
+                            <input type="hidden" value="<%= wishlist.title %>" name="title">
+                            <input type="hidden" value="<%= wishlist.productPrice %>" name="price">
+                            <input type="hidden" value="<%= wishlist.imageUrl %>" name="imageUrl">
+                           <div class="btn-outline p--5"><button class="addcart-btn btn-outline-inner px-2 py-1">Buy Now</button></div>
+                          </form>
+                           <form action="/removeWishlist" method="post">
+                            <input type="hidden" name="productId" value="<%=wishlist.productId%>">
+                            <button class="remove gradient mx-2">
+                              <span class="remove-btn material-symbols-outlined px-1">close</span>
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+          </article>
+                <% } %>
+                <% } else { %>
+                </div>
+                  <h1 class="text-center my-5">Wishlist is Empty</h1>
+                  <% } %>
+                </div>
+              </div>
+          </main>
+          <%- include('../views/includes/footer.ejs') %>
+</body>
+</html>

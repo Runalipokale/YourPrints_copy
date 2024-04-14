@@ -1,0 +1,201 @@
+<%-include('includes/head.ejs')%>
+<link rel="stylesheet" href="/CSS/product.css">
+<link rel="stylesheet" href="/CSS/media.css">
+<body class="">
+    <div class="">
+    <!-- Header -->
+    <%-include('includes/header.ejs')%>  
+    <!-- End-header -->
+
+    <!-- Sidebar -->
+  <aside id="home-sidebar">
+    <div class="sidebar-title d-flex justify-content-between align-items-center p-3">
+      <div class="sidebar-brand mt-1">
+        <h3 class="p-2">Menu</h3>
+      </div>
+      <span class="material-icons" id="close" onclick="closeSidebar()">close</span>
+    </div>
+    <ul class="sidebar-list mt-1">
+      <li class="sidebar-list-item p-2">
+        <a href="#">Home</a>
+      </li>
+      <li class="sidebar-list-item p-2">
+        <a href="#">Products</a>
+      </li>
+      <li class="sidebar-list-item p-2">
+        <a href="#">Customise</a>
+      </li>
+      <li class="sidebar-list-item p-2">
+        <a href="#">Wishlist</a>
+      </li>
+      <li class="sidebar-list-item p-2">
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+  </aside>
+  <!-- End-sidebar -->
+
+      <!-- Main  -->
+      <main class="main-container p-2 mt-3">
+        <div class="product-container d-flex justify-content-between">
+            <div class="product-container-left mt--3">
+                <div class="product-main-img">
+                    <img src="<%= prod.imageUrl %>" alt="">
+                </div>
+            </div>
+            <div class="product-container-right mt-2">
+                <!-- <h5 class="gender-collection letter-space-1">Men Collection</h5> -->
+                <h1 class="product-headline"><%=prod.title%></h1>
+                <h3 class="product-price"><%=prod.price%></h3>
+                <p>Inclusive all taxes</p>
+                <h5 class="letter-space-1 size">SELECT SIZE</h5>
+                <div class="size-button">
+                      <button class="size-btn1 size-btn" onclick="selectSize()">S</button>
+                      <button class="size-btn2 size-btn" onclick="selectSize()">M</button>
+                      <button class="size-btn3 size-btn" onclick="selectSize()">L</button>
+                      <button class="size-btn4 size-btn" onclick="selectSize()">XL</button>
+                      <button class="size-btn5 size-btn" onclick="selectSize()">XXL</button>
+                </div>
+                <div class="functional-buttons mt-2 d-flex">
+                    <form action="/wishlist" method="POST">
+                        <input type="hidden" value="<%= prod.productId %>" name="productId">
+                        <input type="hidden" value="<%= prod.title %>" name="title">
+                        <input type="hidden" value="<%= prod.price %>" name="price">
+                        <input type="hidden" value="<%= prod.imageUrl %>" name="imageUrl">
+                        <input type="hidden" value="<%= prod.description %>" name="description">
+                        <button class="outlined-btn wishlist-btn d-flex justify-content-center align-items-center mt-1">
+                            <span class="material-symbols-outlined">favorite</span>
+                        </button>
+                        </form> 
+                    
+                    <form action="/cart" method="post" class="addcart-btn d-flex mx-1">
+                      <input type="hidden" value="<%= prod.title %>" name="title">
+                        <input type="hidden" value="<%= prod.productId %>" name="productId">
+                        <input type="hidden" value="<%= prod.price %>" name="price">
+                        <input type="hidden" value="<%= prod.imageUrl %>" name="imageUrl">
+                        <input type="hidden" value="<%= prod.description %>" name="description">
+                      <div class="btn-outline p--5"><button class="addcart-btn btn-outline-inner px-5 py-1">Add to Cart</button></div>
+                    </form>
+                    <!-- <span class="add-item-buttons d-flex mt-1">
+                        <button class="outlined-btn negative">-</button>
+                        <span class="outlined-btn added-items-count d-flex justify-content-center">0</span>
+                        <button class="outlined-btn positive">+</button>
+                    </span> -->
+                </div>
+                <h5 class="letter-space-1 size mt-1">PRODUCT DETAILS</h5>
+                <p class="product-details mt--1 letter-space-1"><%=prod.description%></p>
+                <h5 class="letter-space-1 size mt--1">MATERIAL & CARE</h5>
+                <ul class="material px-2 mt--1">
+                    <li class="mt--1">Cotton</li>
+                    <li class="mt--1">Mashine-wash</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-suggestions-container mt-5">
+            <hr class="mt-5">
+            <h5 class="letter-space-1 size mt-5">SIMILAR PRODUCTS</h5>
+            
+            <div class="product-container mt-2">
+              <article class="product-block my-4">
+                 <img src="/women-collection.jpg" alt="image" class="product__img">
+                 <div class="product-data">
+                   <h2>Women Black T-shirt</h2>
+                   <span class="product-desc">T-shirt for Women</span>
+                   <span class="product-desc">Rs.199</span>
+                   <form action="" class="addcart-btn d-flex">
+                    <div class="btn-outline p--5"><button class="addcart-btn btn-outline-inner px-4 py-1">Add to Cart</button></div>
+                    <button class="outlined-btn item-add-wishlist d-flex justify-content-center align-items-center">
+                      <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                  </form>
+                 </div>
+              </article>
+     
+              <article class="product-block my-4">
+                 <img src="/men-collection.jpg" alt="image" class="product__img">
+                 <div class="product-data">
+                   <h2>Men Black T-shirt</h2>
+                   <span class="product-desc">T-shirt for Men</span>
+                   <span class="product-desc">Rs.199</span>
+                   <form action="" class="addcart-btn d-flex">
+                    <div class="btn-outline p--5"><button class="addcart-btn btn-outline-inner px-4 py-1">Add to Cart</button></div>
+                    <button class="outlined-btn item-add-wishlist d-flex justify-content-center align-items-center">
+                      <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                  </form>
+                 </div>
+              </article>
+     
+              <article class="product-block my-4">
+                 <img src="/custome-collection.png" alt="image" class="product__img">
+                 <div class="product-data my-1">
+                   <h2>T-shirts combo for Women & Men</h2>
+                   <span class="product-desc">T-shirt for Women & Men</span>
+                   <span class="product-desc">Rs.199</span>
+                   <form action="" class="addcart-btn d-flex">
+                    <div class="btn-outline p--5"><button class="addcart-btn btn-outline-inner px-4 py-1">Add to Cart</button></div>
+                    <button class="outlined-btn item-add-wishlist d-flex justify-content-center align-items-center">
+                      <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                  </form>
+                  </div>
+              </article>
+    
+              <article class="product-block my-4">
+                <img src="/custome-collection.png" alt="image" class="product__img">
+                <div class="product-data my-1">
+                  <h2>T-shirts combo for Women & Men</h2>
+                  <span class="product-desc">T-shirt for Women & Men</span>
+                  <span class="product-desc">Rs.199</span>
+                  <form action="" class="addcart-btn d-flex">
+                   <div class="btn-outline p--5"><button class="addcart-btn btn-outline-inner px-4 py-1">Add to Cart</button></div>
+                   <button class="outlined-btn item-add-wishlist d-flex justify-content-center align-items-center">
+                    <span class="material-symbols-outlined">favorite</span>
+                  </button>
+                 </form>
+                 </div>
+             </article>
+    
+             <article class="product-block my-4">
+              <img src="/custome-collection.png" alt="image" class="product__img">
+              <div class="product-data">
+                <h2>T-shirts combo for Women & Men</h2>
+                <span class="product-desc">T-shirt for Women & Men</span>
+                <span class="product-desc">Rs.199</span>
+                <form action="" class="addcart-btn d-flex">
+                 <div class="btn-outline p--5"><button class="addcart-btn btn-outline-inner px-4 py-1">Add to Cart</button></div>
+                 <button class="outlined-btn item-add-wishlist d-flex justify-content-center align-items-center">
+                  <span class="material-symbols-outlined">favorite</span>
+                </button>
+               </form>
+               </div>
+           </article>
+    
+           <article class="product-block my-4">
+            <img src="/custome-collection.png" alt="image" class="product__img">
+    
+            <div class="product-data">
+              <h2>T-shirts combo for Women & Men</h2>
+              <span class="product-desc">T-shirt for Women & Men</span>
+              <span class="product-desc">Rs.199</span>
+              <form action="" class="addcart-btn d-flex">
+               <div class="btn-outline p--5"><button class="addcart-btn btn-outline-inner px-4 py-1">Add to Cart</button></div>
+               <button class="outlined-btn item-add-wishlist d-flex justify-content-center align-items-center">
+                <span class="material-symbols-outlined">favorite</span>
+              </button>
+             </form>
+             </div>
+         </article>
+           </div>
+        </div>
+      </main>
+      <!-- End Main -->
+
+      <%-include('includes/footer.ejs')%>
+
+
+    </div>
+
+    <script src="/JS/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+ <!-- Header -->
+ <header class="header d-flex justify-content-between align-items-center">
+  <div class="menu-icon" onclick="openSidebar()">
+    <span class="material-icons">menu</span>
+  </div>
+  <div class="header-left d-flex">
+    <!-- <span class="logo d-flex justify-content-center align-items-center">YOURPRINTS</span> -->
+    <img src="/YourPrints_logo.png" alt="LOGO" height="40vh">
+    <ul class="menu mx-1 d-flex">
+      <li class="mx-2 mt-1"><a href="/">Home</a></li>
+      <li class="mx-2 mt-1"><a href="/product">Products</a></li>
+      <li class="mx-2 mt-1"><a href="/customise">Customise</a></li>
+      <li class="mx-2 mt-1"><a href="/wishlist">Wishlist</a></li>
+      <li class="mx-2 mt-1"><a href="/contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="header-right d-flex">
+    <span class="search-bar d-flex">
+      <form role="search" class="search-input">
+          <input type="search" class="p-1" placeholder="Search...">
+      </form>
+      <button class="header-icon-btn search-btn">
+          <span class="material-symbols-outlined">search</span>
+      </button>
+    </span>
+    <a href="/cart">
+      <button class="header-icon-btn">
+        <span class="material-symbols-outlined">local_mall</span>
+      </button>
+      </a>
+    <a href="/wishlist">
+      <button class="header-icon-btn">
+        <span class="material-symbols-outlined">favorite</span>
+      </button>
+      </a>
+      <a href="/profile">
+      <button class="header-icon-btn">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+      </a>
+  </div>
+</header>
+<!-- End-header -->
+
+<!-- Sidebar -->
+<aside id="home-sidebar">
+<div class="sidebar-title d-flex justify-content-between align-items-center p-3">
+  <div class="sidebar-brand mt-1">
+    <h3 class="p-2">Menu</h3>
+  </div>
+  <span class="material-icons" id="close" onclick="closeSidebar()">close</span>
+</div>
+<ul class="sidebar-list mt-1">
+  <li class="sidebar-list-item p-2">
+    <a href="/">Home</a>
+  </li>
+  <li class="sidebar-list-item p-2">
+    <a href="/product">Products</a>
+  </li>
+  <li class="sidebar-list-item p-2">
+    <a href="/customise">Customise</a>
+  </li>
+  <li class="sidebar-list-item p-2">
+    <a href="/wishlist">Wishlist</a>
+  </li>
+  <li class="sidebar-list-item p-2">
+    <a href="/contact">Contact</a>
+  </li>
+</ul>
+</aside>
+<!-- End-sidebar -->
+

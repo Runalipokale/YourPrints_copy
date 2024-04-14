@@ -1,0 +1,37 @@
+<%- include('includes/head.ejs') %>
+</head>
+<body>
+    <div class="auth-container d-flex justify-content-center align-items-center">
+        <img src="/auth-background.png" alt="">
+        <form action="/user/signUp" method="post" class="auth-body p-2">
+            <div class="auth-field">
+                <input type="text" name="username" id="username" placeholder="EX.XYZ" required>
+            </div>
+            <div class="auth-field">
+                <input type="password" name="password" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <p id="password-invalid" class="invalid"></p>
+            </div>
+            <div class="auth-field">
+                <input type="password" name="confirmPassword" id="confirm-password" placeholder="Confirm Password" title="Please enter correct password as same as password" required>
+                <p id="confirm-password-invalid" class="invalid"></p>
+            </div>
+            <div class="auth-field">
+                <input type="text" name="phoneNumber" id="phoneno" placeholder="EX.XXXXXXXXXX" title="Please enter minimum 10 numbers" required>
+            </div>
+            <div class="auth-field">
+                <input type="email" name="email" id="email" placeholder="EX.xyz@gmail.com" title="Enter Valid email ID" required>
+            </div>
+            <div class="auth-field">
+                <input type="text" name="address" id="address" placeholder="EX.House No./City/District/State/Country" title="Enter your address as given format" required>
+            </div>
+            <div class="auth-field d-flex justify-content-center">
+                <div class="btn-outline p--5"><button class="btn-outline-inner px-5 py-1">SIGN UP</button></div>
+            </div>
+            <div class="auth-field d-flex justify-content-center">
+                Already have an account? <a href="/login">Login Now</a>
+            </div>
+        </form>
+    </div>
+    <script src="/JS/index.js"></script>
+</body>
+</html>

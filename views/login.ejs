@@ -1,0 +1,44 @@
+<%- include('../views/includes/head.ejs') %>
+</head>
+<body>
+    <!-- <div class="login-container">
+        <img src="/auth-background.png" alt="">
+        <div class="login-body d-flex justify-content-center align-items-center">
+            <div class="login-box px-5 py-5">
+                <div class="field my-5 d-flex align-items-center justify-content-center">
+                    <input type="text" name="username" placeholder="Username">
+                </div>
+                <div class="field my-5 d-flex align-items-center justify-content-center">
+                    <input type="text" name="otp"  placeholder="Enter OTP" id="">
+                </div>
+                <div class="button-form px-1 py-1 d-flex align-items-center justify-content-center">
+                    <div class="log-btn-wrap px-1 py-1"><button class="log-btn px-5 py-2">Login</button></div>
+                    <div class="register text-center">
+                        Have trouble logging in?
+                        <a href="">Get help</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="auth-container d-flex justify-content-center align-items-center">
+        <img src="/auth-background.png" alt="" class="logo">
+        <form class="auth-body p-2">
+            <div class="auth-field p-2">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="auth-field p-2">
+                <input type="password" name="password" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <p id="password-invalid" class="invalid"></p>
+            </div>
+            <div class="auth-field p-2 d-flex justify-content-center">
+                <div class="btn-outline p--5"><button class="btn-outline-inner px-5 py-1">Login</button></div>
+            </div>
+            <div class="auth-field d-flex justify-content-center">
+                New to YourPrints? <a href="/user/signUp">Sign Up Now</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

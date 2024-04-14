@@ -1,0 +1,122 @@
+<%-include('includes/head.ejs')%>
+</head>
+<body class="">
+    <div class="">
+        <!-- Header -->
+        <%-include('includes/header.ejs')%>  
+      <!-- End-header -->
+
+      <!-- Sidebar -->
+
+    <!-- End-sidebar -->
+
+      <!-- Main  -->
+      <main class="main-container p-2 mt-3">
+        <div class="product-container d-flex justify-content-between flex-wrap">
+            <div class="product-container-left">
+                <div class="product-main-img">
+                    <img src="<%= prod.imageUrl %>" alt="">
+                </div>
+            </div>
+            <div class="product-container-right">
+                
+                <h1 class="product-headline"><%=prod.title%></h1>
+                <h3 class="product-price"><%=prod.price%></h3>
+                <p class="product-desc"><%=prod.description%></p>
+                <h5 class="letter-space-1 size">SELECT SIZE</h5>
+                <div class="size-button">
+                    <button class="size-btn1 size-btn">S</button>
+                    <button class="size-btn2 size-btn">M</button>
+                    <button class="size-btn3 size-btn">L</button>
+                    <button class="size-btn4 size-btn">XL</button>
+                    <button class="size-btn5 size-btn">XXL</button>
+                </div>
+                <div class="functional-buttons mt-2 d-flex">
+                        <form action="/wishlist" method="POST">
+                            <input type="hidden" value="<%= prod.productId %>" name="productId">
+                            <input type="hidden" value="<%= prod.title %>" name="title">
+                            <input type="hidden" value="<%= prod.price %>" name="price">
+                            <input type="hidden" value="<%= prod.imageUrl %>" name="imageUrl">
+                            <input type="hidden" value="<%= prod.description %>" name="description">
+                            <button class="outlined-btn item-add-wishlist d-flex justify-content-center align-items-center">
+                              <span class="material-symbols-outlined">favorite</span>
+                            </button>
+                            </form> 
+                    <button class="add-to-cart-btn d-flex justify-content-center align-items-center mx-1 px-5 py-1">
+                        <span class="material-symbols-outlined mx-1">add_shopping_cart</span>ADD TO CART
+                    </button>
+                    <span class="add-item-buttons d-flex">
+                        <button class="outlined-btn negative">-</button>
+                        <span class="outlined-btn added-items-count text-center">0</span>
+                        <button class="outlined-btn positive">+</button>
+                    </span>
+                </div>
+                <div class="customised-option-button mt-1">
+                    <button class="outlined-btn customisation-btn d-flex justify-content-center align-items-center">
+                        <span class="material-symbols-outlined">edit</span> CUSTOMISE TOOL
+                    </button>
+                </div>
+                <h5 class="letter-space-1 size mt-1">PRODUCT DETAILS</h5>
+                <p class="product-details mt--1 letter-space-1"><%= prod.description%></p>
+                <h5 class="letter-space-1 size mt--1">MATERIAL & CARE</h5>
+                <ul class="material px-2 mt--1">
+                    <li class="mt--1">Cotton</li>
+                    <li class="mt--1">Mashine-wash</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-suggestions-container mt-5">
+            <hr class="mt-5">
+            <h5 class="letter-space-1 size mt-5">SIMILAR PRODUCTS</h5>
+            <div class="items-container d-flex flex-wrap mt-5">
+                <div class="items flex">
+                    <img class="item-img d-flex justify-content-center" src="/Assets/croptshirt-banner.webp" alt="image">
+                    <h6 class="product-name mt-1">Nude Pink T-shirt</h6>
+                    <span class="price">Rs.150</span>
+                </div>
+                <div class="items flex">
+                    <img class="item-img d-flex justify-content-center" src="/Assets/croptshirt-banner.webp" alt="image">
+                    <h6 class="product-name mt-1">Nude Pink T-shirt</h6>
+                    <span class="price">Rs.150</span>
+                </div>
+                <div class="items flex">
+                    <img class="item-img d-flex justify-content-center" src="/Assets/croptshirt-banner.webp" alt="image">
+                    <h6 class="product-name mt-1">Nude Pink T-shirt</h6>
+                    <span class="price">Rs.150</span>
+                </div>
+                <div class="items flex">
+                    <img class="item-img d-flex justify-content-center" src="/Assets/croptshirt-banner.webp" alt="image">
+                    <h6 class="product-name mt-1">Nude Pink T-shirt</h6>
+                    <span class="price">Rs.150</span>
+                </div>
+                <div class="items flex">
+                    <img class="item-img d-flex justify-content-center" src="/Assets/croptshirt-banner.webp" alt="image">
+                    <h6 class="product-name mt-1">Nude Pink T-shirt</h6>
+                    <span class="price">Rs.150</span>
+                </div>
+                <div class="items flex">
+                    <img class="item-img d-flex justify-content-center" src="/Assets/croptshirt-banner.webp" alt="image">
+                    <h6 class="product-name mt-1">Nude Pink T-shirt</h6>
+                    <span class="price">Rs.150</span>
+                </div>
+                <div class="items flex">
+                    <img class="item-img d-flex justify-content-center" src="/Assets/croptshirt-banner.webp" alt="image">
+                    <h6 class="product-name mt-1">Nude Pink T-shirt</h6>
+                    <span class="price">Rs.150</span>
+                </div>
+                <div class="items flex">
+                    <img class="item-img d-flex justify-content-center" src="/Assets/croptshirt-banner.webp" alt="image">
+                    <h6 class="product-name mt-1">Nude Pink T-shirt</h6>
+                    <span class="price">Rs.150</span>
+                </div>
+            </div> 
+        </div>
+      </main>
+      <!-- End Main -->
+
+    </div>
+
+    <script src="/Public/JS/index.js"></script>
+    <%-include('includes/footer.ejs')%>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourPrints</title>
+    <link rel="stylesheet" href="/Public/CSS/style.css">
+    <link rel="stylesheet" href="/Public/CSS/media.css">
+    <link rel="shortcut icon" href="/Assets/YourPrints_logo.png" type="image/x-icon" sizes="48x48">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+    <header>
+      <div class="container mt-4">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+            <img src="/Assets/YourPrints_logo.png" alt="LOGO" height="40vh">
+          </a>
+  
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 mx-5">
+            <li><a href="#" class="nav-link px-2 link-body-emphasis">Home</a></li>
+            <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
+            <li><a href="#" class="nav-link px-2 link-body-emphasis">Wishlist</a></li>
+            <li><a href="#" class="nav-link px-2 link-body-emphasis">Contact</a></li>
+          </ul>
+  
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input type="search" class="form-control bg-light" placeholder="Search..." aria-label="Search">
+          </form>
+          <div class="cart mx-3">
+            <ion-icon name="bag-handle"></ion-icon>
+            <span class="position-absolute top-2 translate-middle badge rounded-pill bg-danger h6 px-2 py-1 fs-6">1</span>
+          </div>
+
+          <div class="dropdown text-end">
+            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Wishlist</a></li>
+              <li><a class="dropdown-item" href="#">Recent Orders</a></li>
+              <li><a class="dropdown-item" href="#">Track Order</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- <div class="container col-xxl-8 px-4 py-2">
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+        <div class="row flex-lg-row-reverse align-items-center g-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img src="/Assets/White-Tshirt.png" class="bannerImg d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="600" height="350" loading="lazy">
+          </div>
+          <div class="col-lg-6">
+            <h3 class="display-5 text-body-emphasis lh-1 mb-3">Customised T-shirts
+            </h3>
+            <h1 class="display-1 fw-bold my-2">Just For You</h1>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <button class="gradientbtn px-4 py-2 mt-4">SHOP NOW</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    <section class="container hero-sec mt-3">
+      <div class="div1"></div>
+      <div class="div2"></div>
+      <div class="div3"></div>
+      <div class="banner d-flex mt-5 my-5">
+        <div class="left-banner">
+          <h3>Customised T-shirts</h3>
+          <h1 class="display-1 my-2">Just For You</h1>
+          <button class="gradientbtn px-4 py-2 mt-4">SHOP NOW</button>
+        </div>
+        <div class="right-banner">
+          <img class="bannerImg d-block mx-lg-auto img-fluid" src="/Assets/White-Tshirt.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="container sec-2">
+      <h4 class="fw-bold mx-1 my-4">Bestseller</h4>
+      <div class="card-container d-flex justify-content-between">
+      <div class="card-prev px-1 py-1 d-flex justify-content-center align-items-center"><</div>
+      <div class="cards py-2 px-2 mx-2">
+        <div class="card-body px-4 py-4">
+          <img src="/Assets/card-img-black.jpg" alt="image">
+          <h6 class="product-name mt-4">Black T-shirt</h6>
+          <span class="price">Rs.150</span>
+        </div>
+      </div>
+      <div class="cards py-2 px-2 mx-2">
+        <div class="card-body px-4 py-4">
+          <img src="/Assets/card-img-cherrypink.jpg" alt="image">
+          <h6 class="product-name mt-4">Cherrypink T-shirt</h6>
+          <span class="price">Rs.150</span>
+        </div>
+      </div>
+      <div class="cards py-2 px-2 mx-2">
+        <div class="card-body px-4 py-4">
+          <img src="/Assets/card-img-grey.jpg" alt="image">
+          <h6 class="product-name mt-4">Grey T-shirt</h6>
+          <span class="price">Rs.150</span>
+        </div>
+      </div>
+      <div class="cards py-2 px-2 mx-2">
+        <div class="card-body px-4 py-4">
+          <img src="/Assets/card-img-nudepink.jpg" alt="image">
+          <h6 class="product-name mt-4">Nude Pink T-shirt</h6>
+          <span class="price">Rs.150</span>
+        </div>
+      </div>
+      <div class="cards py-2 px-2 mx-2">
+        <div class="card-body px-4 py-4">
+          <img src="/Assets/card-img-yellow.jpg" alt="image">
+          <h6 class="product-name mt-4">Yellow T-shirt</h6>
+          <span class="price">Rs.150</span>
+        </div>
+      </div>
+      <div class="cards py-2 px-2 mx-2">
+        <div class="card-body px-4 py-4">
+          <img src="/Assets/card-img-cherrypink.jpg" alt="image">
+          <h6 class="product-name mt-4">Cherrypink T-shirt</h6>
+          <span class="price">Rs.150</span>
+        </div>
+      </div>
+      <div class="cards py-2 px-2 mx-2">
+        <div class="card-body px-4 py-4">
+          <img src="/Assets/card-img-grey.jpg" alt="image">
+          <h6 class="product-name mt-4">Grey T-shirt</h6>
+          <span class="price">Rs.150</span>
+        </div>
+      </div>
+      <div class="cards py-2 px-2 mx-2">
+        <div class="card-body px-4 py-4">
+          <img src="/Assets/card-img-nudepink.jpg" alt="image">
+          <h6 class="product-name mt-4">Nude Pink T-shirt</h6>
+          <span class="price">Rs.150</span>
+        </div>
+      </div>
+      <div class="cards py-2 px-2 mx-2">
+        <div class="card-body px-4 py-4">
+          <img src="/Assets/card-img-yellow.jpg" alt="image">
+          <h6 class="product-name mt-4">Yellow T-shirt</h6>
+          <span class="price">Rs.150</span>
+        </div>
+      </div>
+      <div class="card-next px-1 py-1 d-flex justify-content-center align-items-center">></div>
+    </div>
+    </section>
+
+    <section class="container sec-3 mt-5">
+      <h4 class="fw-bold mx-1 my-4">Top Categories</h4>
+      <div class="cat-container d-flex justify-content-between">
+        <div class="cat-prev px-1 py-1 d-flex justify-content-center align-items-center"><</div>
+        <div class="cat-body py-2 px-2 mx-3">
+          <img src="/Assets/t-shirt-banner.jpg" alt="">
+          <h4 class="cat-name fw-bold mt-3 d-flex justify-content-center">T-shirts</h4>
+        </div>
+        <div class="cat-body px-2 py-2 mx-3">
+          <img src="/Assets/sweatshirt-banner.webp" alt="">
+          <h4 class="cat-name fw-bold mt-3 d-flex justify-content-center">Sweatshirts</h4>
+        </div>
+        <div class="cat-body px-2 py-2 mx-3">
+          <img src="/Assets/hoodie-banner.jpg" alt="">
+          <h4 class="cat-name fw-bold mt-3 d-flex justify-content-center">Hoodies</h4>
+        </div>
+        <div class="cat-body px-2 py-2 mx-3">
+          <img src="/Assets/oversized-banner.webp" alt="">
+          <h4 class="cat-name fw-bold mt-3 d-flex justify-content-center">Oversized T-shirt</h4>
+        </div>
+        <div class="cat-body px-2 py-2 mx-3">
+          <img src="/Assets/croptshirt-banner.webp" alt="">
+          <h4 class="cat-name fw-bold mt-3 d-flex justify-content-center">Crop T-shirt</h4>
+        </div>
+        <div class="cat-next px-1 py-1 d-flex justify-content-center align-items-center">></div>
+      </div>
+    </section>
+    <section class="container sec-4 mt-5">
+      <!-- <div class="div4"></div> -->
+      <div class="div5"></div>
+      <div class="branding-sec d-flex justify-content-between">
+        <div class="branding-img mt-1 mx-5 d-block mx-lg-auto img-fluid">
+          <img src="/Assets/home-page-branding-img.png" alt="">
+        </div>
+        <div class="branding-text mt-5">
+          <h2 class="fw-bold my-2 mt-5">Customized T-shirts</h2>
+          <h5 class="my-3">Step into a world of personalized style at YourPrints. Explore the latest trends. Dive into our blog where we curate the 
+            latest trends in custom fashion, offering inspiration for your next wearable masterpiece. Unleash your creativity,
+             share your designs. Your story, your style – find it at YourPrints.
+          </h5>
+          <h5 class="fw-bold">Love It !! Buy It !!</h5>
+        </div>
+      </div>
+    </section>
+    </main>
+    <br><br><br>
+    <hr>
+    <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+          <img src="/Assets/YourPrints_logo.png" alt="LOGO" height="20vh">
+        </a>
+        <span class="mb-3 mb-md-0 text-body-secondary">© 2023 YourPrints</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-body-secondary" href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><ion-icon name="logo-google"></ion-icon></a></li>
+      </ul>
+    </footer>
+</body>
+</html>

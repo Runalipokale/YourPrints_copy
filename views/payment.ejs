@@ -1,0 +1,104 @@
+<%- include('includes/head.ejs')%>
+<link rel="stylesheet" href="/CSS/admin.css">
+<link rel="stylesheet" href="/CSS/adminMedia.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body class="body" ng-app="myApp">
+    <div class="grid-container grid">
+        <%- include('./includes/adminHeader.ejs') %>
+
+        <!-- Sidebar -->
+        <%- include('./includes/admin-sidebar.ejs') %>
+        <!-- End-sidebar -->
+
+    <!-- main -->
+    <main class="main-container p-3">
+        
+        <% if (payment.length > 0) { %>
+            <div class="main-title d-flex justify-content-between">
+              <p class="font-weight-bold"><%=pageTitle%></p>
+            </div>
+            <div class="main-cards grid">
+      
+                <div class="card flex">
+                  <div class="card-inner d-flex justify-content-between align-items-center">
+                    <p class="">Products</p>
+                    <span class="material-icons text-blue">inventory_2</span>
+                  </div>
+                  <span class=" font-weight-bold">249</span>
+                </div>
+            
+                <div class="card flex">
+                  <div class="card-inner d-flex justify-content-between align-items-center">
+                    <p class="">Purchase Orders</p>
+                    <span class="material-icons text-orange">add_shopping_cart</span>
+                  </div>
+                  <span class=" font-weight-bold">83</span>
+                </div>
+            
+                <div class="card flex">
+                  <div class="card-inner d-flex justify-content-between align-items-center">
+                    <p class="">Sales Orders</p>
+                    <span class="material-icons text-green">shopping_cart</span>
+                  </div>
+                  <span class="font-weight-bold">79</span>
+                </div>
+                <% for(payments of payment){ %>
+                <div class="order-table grid mt-5">
+                  <table class="p-2">
+                    <thead>
+                      <tr class="order-table-heading">
+                        <th colspan="6">Recent Orders</th>
+                      </tr>
+                      <tr class="order-table-head-row">
+                        <td>Order</td>
+                        <td>Date</td>
+                        <td>VIA</td>
+                        <td>Amount</td>
+                        <td>Status</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Feb 9th 2024</td>
+                        <td>Cash</td>
+                        <td>499</td>
+                        <td class="status shipped">
+                          <span>Shipped</span>
+                        </td>
+                      </tr>
+                      <tr>
+                          <td>1</td>
+                          <td>Feb 9th 2024</td>
+                          <td>Cash</td>
+                          <td>499</td>
+                          <td class="status shipped">
+                            <span>Shipped</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>Feb 9th 2024</td>
+                          <td>Cash</td>
+                          <td>499</td>
+                          <td class="status shipped">
+                            <span>Shipped</span>
+                          </td>
+                        </tr>
+                    </tbody>
+                  </table>      
+        <% } %>
+        <% } else { %>
+          <h1 class="text-center my-1">No Orders Found!</h1>
+          <% } %>
+
+        </div>
+      </main>
+      <!-- End-main -->
+    </div> 
+    <!-- Custom Js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+<script src="/Public/JS/index.js"></script>
+</body>
+</html>

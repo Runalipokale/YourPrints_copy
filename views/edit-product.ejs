@@ -1,0 +1,33 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/CSS/admin.css">
+</head>
+<body class="body">
+  <!-- <div class="grid-container grid justify-content-center my-5 mx-4"> -->
+    <!-- <%- include('./includes/admin-sidebar.ejs') %>   -->
+        <div class="add-product-form mt-3 d-flex justify-content-center align-items-center">
+            <div class="add-product-body p-5">
+                  <form action="/admin/editProduct/:productId" method="post">
+                    <div class="field my-5">
+                      <input type="text" name="title" id="" placeholder="<%=prods.title%>">
+                    </div>
+                    <div class="field my-5">
+                      <input type="text" name="price" id="" placeholder="<%=prods.price%>">
+                    </div>
+                    <div class="field my-5">
+                        <input type="text" name="imageUrl" id="" placeholder="<%=prods.imageUrl%>">
+                    </div>
+                    <div class="field my-5">
+                      <textarea name="description" id="" cols="40" rows="4" placeholder="<%=prods.description%>"></textarea>
+                    </div>
+                    <div class="button-form px-1 py-1 d-flex align-items-center justify-content-center">
+                        <div class="log-btn-wrap px-1 py-1">
+                          <button class="log-btn px-5 py-2" type="submit">Update Product</button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+        </form>
+    </div>
+     
+</body>

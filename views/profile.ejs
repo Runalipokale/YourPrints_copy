@@ -1,0 +1,48 @@
+<%- include('./includes/head.ejs') %>
+<!-- Additional styles or scripts if needed -->
+</head>
+<body>
+    <div class="container">
+        <div class="">
+        <% if (user) { %>
+            <%- include('./includes/header.ejs') %>
+            <main class="main-container p-2 d-flex justify-content-center">
+                <div class="user-profile-container p-5 mt--1">
+                  <div class="gradient profile-div"></div>
+                  <img class="profile-img" src="/profile-icon.png" alt="Profile Picture">
+                    <div class="user-profile-body p-5">
+                      <div class="user-profile-box mt-3">
+                        <span class="profile-field p-1 d-flex flex-wrap ">
+                            <h3 class="profile-detail-field mx-5">Username : </h3>
+                            <h3 class="profile-user-info"> <%= user.username %></h3>
+                        </span>
+                        <span class="profile-field p-1 d-flex flex-wrap">
+                            <h3 class="profile-detail-field mx-5">Email ID : </h3>
+                            <h3 class="profile-user-info"><%= user.email %></h3>
+                        </span>
+                        <span class="profile-field p-1 d-flex flex-wrap">
+                            <h3 class="profile-detail-field mx-5">Phone No. : </h3>
+                            <h3 class="profile-user-info"><%= user.phoneNumber%></h3>
+                        </span>
+                        <span class="profile-field p-1 d-flex flex-wrap">
+                            <h3 class="profile-detail-field mx-5">Address : </h3>
+                            <h3 class="profile-user-info"><%= user.address%></h3>
+                        </span>
+                        <!-- <span class="profile-field p-1 d-flex flex-wrap">
+                            <h3 class="profile-detail-field mx-5">Location : </h3>
+                            <h3 class="profile-user-info mx-5">Maharashtra</h3>
+                        </span> -->
+                        <span class="profile-field p-1 d-flex flex-wrap justify-content-center">
+                            <div class="btn-outline p--5"><button class="btn-outline-inner px-5 py-1">Log Out</button></div>
+                        </span>
+                      </div>
+                    </div>
+                </div>
+                </div>
+        <% } else { %>
+            <p>User not found.</p>
+        <% } %>
+    </div>
+    <script src="/Public/JS/index.js"></script>
+</body>
+</html>

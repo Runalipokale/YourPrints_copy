@@ -1,0 +1,135 @@
+<%- include('../views/includes/head.ejs') %>
+<link rel="stylesheet" href="/CSS/admin.css">
+<link rel="stylesheet" href="/CSS/adminMedia.css">
+</head>
+<body>
+  <%- include('../views/includes/header.ejs') %>
+    <main>
+
+    <section class="sec-container hero-sec mt-3">
+      <div class="div1"></div>
+      <div class="div2"></div>
+      <div class="div3"></div>
+      <div class="banner d-flex mt-5 my-5 justify-content-between">
+        <div class="hero-left-banner">
+          <h2>Design Your Story</h2>
+          <h1 class="my-4">Wear Your Passion!</h1>
+          <form action="/product" method="GET">
+          <button class="gradientbtn px-4 py-1">SHOP NOW</button>
+          </form>
+        </div>
+        <div class="hero-right-banner mt-1">
+          <img class="bannerImg" src="/White-Tshirt.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="sec-container sec-2">
+      <h2>Top Categories</h2>
+      <div class="categories-container d-flex flex-wrap mt-2">
+        <div class="categories-block mx-1 my-1">
+          <form action="/product/category" method="post">
+          <input type="hidden" value="hoodie" name="type">
+          <button class="categories p-5"><img width="65" height="65" src="https://img.icons8.com/external-itim2101-lineal-itim2101/64/external-hoodie-clothes-itim2101-lineal-itim2101.png" alt="external-hoodie-clothes-itim2101-lineal-itim2101"/></button>
+          <div class="mt-1">Hoodies</div>
+          </form>
+        </div>
+        <div class="categories-block mx-1 my-1">
+          <form action="/product/category" method="post">
+            <input type="hidden" value="T-shirt" name="type">
+          <button class="categories p-5"><img width="65" height="65" src="https://img.icons8.com/ios/50/t-shirt--v1.png" alt="t-shirt--v1"/></button>
+          <div class="mt-1">T-shirts</div>
+          </form>
+        </div>
+        <div class="categories-block mx-1 my-1">
+          <form action="/product/category" method="post">
+            <input type="hidden" value="Sweatshirt" name="type">
+          <button class="categories p-5"><img width="65" height="65" src="https://img.icons8.com/ios/50/tracksuit.png" alt="tracksuit"/></button>     
+          <div class="mt-1">Sweatshirts</div>  
+          </form> 
+        </div>
+        <div class="categories-block mx-1 my-1">
+          <form action="/product/category" method="post">
+            <input type="hidden" value="Oversized T-shirt" name="type">
+          <button class="categories p-5"><img width="65" height="65" src="https://img.icons8.com/pastel-glyph/64/t-shirt--v1.png" alt="t-shirt--v1"/></button>
+          <div class="mt-1">Oversized T-shirts</div>     
+          </form>  
+        </div>
+        <div class="categories-block mx-1 my-1">
+          <form action="/product/category" method="post">
+            <input type="hidden" value="Crop T-shirt" name="type">
+          <button class="categories p-5"><img width="65" height="65" src="https://img.icons8.com/pastel-glyph/64/t-shirt--v3.png" alt="t-shirt--v3"/></button>
+          <div class="mt-1">Crop Tops</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec-container sec-3 mt-5">
+      <h2 class="mt-5">Top Collections</h2>
+      <div class="collection-container mt-2">
+         <article class="collection-block my-4">
+            <img src="/women-collection.jpg" alt="image" class="card__img">
+
+            <div class="collection-data">
+              <span class="collection-desc">New Arrivals</span>
+              <h2>Women Collection</h2>
+              <form action="/product/gender" method="post">
+              <input type="hidden" value="Female" name="gender">
+              <a href="/product/gender" method="post">Shop Now</a>
+              </form>
+            </div>
+         </article>
+
+         <article class="collection-block my-4">
+            <img src="/men-collection.jpg" alt="image" class="card__img">
+
+            <div class="collection-data">
+              <span class="collection-desc">New Arrivals</span>
+              <h2>Men Collection</h2>
+              <form action="/product/gender" method="post">
+                <input type="hidden" value="Male" name="gender">
+                <a href="/product/gender" method="post">Shop Now</a>
+              </form>
+            </div>
+         </article>
+
+         <article class="collection-block my-4">
+            <img src="/custome-collection.png" alt="image" class="card__img">
+
+            <div class="collection-data">
+              <span class="collection-desc">Custome Design</span>
+              <h2>T-shirts collection</h2>
+              <form action="/customise" method="post">
+                <input type="hidden" value="<%= prods.gender%> " name="gender">            
+                <a href="/customise">Shop Now</a>
+              </form>
+            </div>
+         </article>
+      </div>
+    </section>
+    
+    <section class="sec-container sec-4 mt-1">
+      <div class="branding-sec d-flex justify-content-between mt-5 flex-wrap">
+        <div class="branding-img">
+          <img src="/branding-img.png" alt="">
+        </div>
+        <div class="branding-text">
+          <h1 class="">Customized T-shirts</h1>
+          <p class="mt-3 d-flex flex-wrap">Step into a world of personalized style at YourPrints. Explore the latest trends. Dive into our blog where we curate the 
+            latest trends in custom fashion, offering inspiration for your next wearable masterpiece. Unleash your creativity,
+             share your designs. Your story, your style – find it at YourPrints.
+          </p>
+          <h4 class="mt-3">Love It !! Buy It !!</h4>
+          <form action="/customise" method="get" class="custom-btn d-flex my-3">
+            <div class="btn-outline p--5"><button class="custom-btn btn-outline-inner px-5 py-1">Customise</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    </main>
+    <%- include('../views/includes/footer.ejs') %>
+    <script src="/JS/index.js"></script>
+</body>
+</html>

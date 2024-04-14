@@ -1,0 +1,122 @@
+.toolbar{
+  background-color: #21232d;
+  color: #fff;
+}
+.tool-section{
+  height: 150vh;
+}
+.toolbar button{
+  background: none;
+  border: none;
+  color: #fff;
+}
+.toolbar button span{
+  font-size: 2.5rem;
+  margin-top: 20px;
+}
+.tool-container{
+  width: 20vw;
+  background-color: #21232ddb;
+  color: #fff;
+  padding: 10px;
+}
+.tool-box{
+  flex-direction: column;
+}
+.tool-box .material-symbols-outlined{
+  padding: 20px;
+  font-size: 3rem;
+}
+.toolbar a{
+  text-decoration: none;
+  color: #fff;
+}
+.tshirt-tool{
+  flex-direction: column;
+}
+.tshirt-tool .tshirt-btn{
+  background: none;
+  border: none;
+}
+.tshirt-btn img{
+  height: 100px;
+  width: 100px;
+  filter: drop-shadow(10px 10px 20px #000);
+}
+.element-btn{
+  height: 100px;
+  width: 100px;
+  background: none;
+  border: none;
+  color: #fff;
+}
+.element-btn .material-symbols-outlined{
+  font-size: 5rem;
+  font-weight: 300;
+}
+.text-tool input{
+  background-color: #21232ddb;
+  border: 1px solid #fff;
+  outline: none;
+  color: #fff;
+  width: 100%;
+}
+#addText-btn{
+  background-color: #fff;
+  color: #21232d;
+  border: none;
+  padding: 5px;
+}
+.font-style #fontselect{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #fff;
+  background-color: #21232ddb;
+  color: #fff;
+}
+.font-style #textalignment{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #fff;
+  background-color: #21232ddb;
+  color: #fff;
+}
+.draw-btn{
+  width: 100%;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  letter-spacing: 2px !important;
+}
+.colorPicker{
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #fff;
+  background-color: #21232ddb;
+  color: #fff;
+}
+#canvas-container{
+  width: 100% !important;
+  position: relative;
+  height: 400px;
+}
+#canvas{
+  background-color: #fff;
+}
+.toggle-tool-btns{
+  flex-direction: column;
+}
+#uploadInput {
+  display: none;
+}
+#imagePreview {
+  margin-top: 20px;
+}
+#previewImage {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+  

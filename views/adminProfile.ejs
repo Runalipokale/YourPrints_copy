@@ -1,0 +1,37 @@
+<%- include('./includes/head.ejs') %>
+</head>
+<%- include('./includes/adminHeader.ejs') %>
+<body>
+    <div class="container">
+        <div class="">
+        <% if (admins) { %>
+            <main class="main-container p-2 d-flex justify-content-center">
+                <div class="user-profile-container p-5 mt--1">
+                  <div class="gradient profile-div"></div>
+                  <img class="profile-img" src="/profile-icon.png" alt="Profile Picture">
+                    <div class="user-profile-body p-5">
+                      <div class="user-profile-box mt-3">
+                        <span class="profile-field p-1 d-flex flex-wrap ">
+                            <h3 class="profile-detail-field mx-5">Name : </h3>
+                            <h3 class="profile-user-info"><%=admins.name%></h3>
+                        </span>
+                        <span class="profile-field p-1 d-flex flex-wrap">
+                            <h3 class="profile-detail-field mx-5">Email ID : </h3>
+                            <h3 class="profile-user-info"><%= admins.email%></h3>
+                        </span>
+
+                        <span class="profile-field p-1 d-flex flex-wrap justify-content-center">
+                          <div class="log-btn-wrap p--5"><button class="log-btn px-5">Log Out</button></div>
+                      </span>
+                      </div>
+                    </div>
+                </div>
+                </div>
+        <% } else { %>
+            <p>Please Login to see your profile</p>
+            <div class="log-btn-wrap p--5"><button class="log-btn px-5">Log In</button></div>
+        <% } %>
+    </div>
+    <script src="/Public/JS/index.js"></script>
+</body>
+</html> 
