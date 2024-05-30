@@ -61,7 +61,7 @@ app.use(passport.session());
 
 //importing admin and shop module
 const adminRoutes = require('../router/admin');
-const shopRoutes = require('./router/shop');
+const shopRoutes = require('../router/shop');
 const authRoutes = require('../router/auth');
 
 app.use(adminRoutes); // for use admin.js data in this module
