@@ -1,120 +1,91 @@
-// importing initial packages 
-const path = require('path');
-const express = require('express');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const cookie = require('cookie');
-const mySqlStore = require('express-mysql-session')(session);
-const passport = require('passport');
+// importing initial packages
+import fs from 'node:fs';
+import path from 'node:path';
+import express from 'express';
+import bodyParser from 'body-parser';
+import cookieSession from 'cookie-session';
+import passport from 'passport';
 
-const {initializingPassport} = require('../controller/authController');
-//importing database ORM
-const sequelize = require('../utils/database')
+import { initializingPassport } from '../controller/authController.js';
 
-//models
-const User = require('../models/user');
-const Admin = require('../models/admin');
-const Product = require('../models/product');
-const Cart = require('../models/cart');
-const Order = require('../models/order');
-const OrderItem = require('../models/order-item');
-const CartItem = require('../models/order-item');
-const WishlistItem = require('../models/wishlist-item');
-const Wishlist = require('../models/wishlist');
+//importing admin and shop module
+import adminRoutes from './admin.js';
+import shopRoutes from './shop.js';
+import authRoutes from './auth.js';
+
+// views are bundled with the Netlify Function, so look them up from the project root
+const findDir = (name) => {
+    const roots = [process.cwd(), process.env.LAMBDA_TASK_ROOT].filter(Boolean);
+    for (const root of roots) {
+        const dir = path.join(root, name);
+        if (fs.existsSync(dir)) return dir;
+    }
+    return path.join(process.cwd(), name);
+}
+
+const sessionSecret = process.env.SESSION_SECRET || (process.env.NETLIFY_DEV ? 'yourprints-local-dev-secret' : null);
+if (!sessionSecret) {
+    throw new Error('SESSION_SECRET environment variable is not set');
+}
 
 const app = express();
-const store =  new mySqlStore({
 
-},sequelize);
+// Netlify sits in front of the function as a proxy
+app.set('trust proxy', true);
 
-// //controllers
-const adminController = require('../controller/adminController');
-const shopController = require('../controller/shopController');
-const authController = require('../controller/authController');
+//receving static files (served by the Netlify CDN in production; this only matters locally)
+for (const dir of ['Public', 'Assets']) {
+    const full = findDir(dir);
+    if (fs.existsSync(full)) {
+        app.use(express.static(full));
+        app.use('/' + dir, express.static(full));
+    }
+}
 
-//receving static files 
-app.use(express.static('views'));
-app.use(express.static('Public'));
-app.use(express.static('Assets'));
+//using ejs templating engine
+app.set('view engine', 'ejs');
+app.set('views', findDir('views'));
 
-//using ejs templating engine 
-app.set('view engine','ejs');
-app.set('views','views');
+//passing body request
+//extended: true => give ability to take object within object
+app.use(bodyParser.urlencoded({ extended: true }))
 
-//passing body request 
-//extended: true => give ability to take object within object 
-app.use(bodyParser.urlencoded({extended:true})) 
-
-//using express-session for saving user data at browser
-app.use(session({
-    secret: "secret",
-    resave: false,
-    saveUninitialized: false,
-    store: store // Pass your store instance here
+//saving the logged in user in a signed cookie, so it works across serverless invocations
+app.use(cookieSession({
+    name: 'yourprints.sid',
+    keys: [sessionSecret],
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    sameSite: 'lax',
 }));
+
+// passport 0.7 expects regenerate/save on the session, which cookie-session doesn't provide
+app.use((req, res, next) => {
+    if (req.session && !req.session.regenerate) {
+        req.session.regenerate = (cb) => cb();
+    }
+    if (req.session && !req.session.save) {
+        req.session.save = (cb) => cb();
+    }
+    next();
+});
 
 initializingPassport(passport);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-//importing admin and shop module
-const adminRoutes = require('../router/admin');
-const shopRoutes = require('../router/shop');
-const authRoutes = require('../router/auth');
-
-app.use(adminRoutes); // for use admin.js data in this module
-app.use(shopRoutes); // for use shop.js data in this module
+app.use(adminRoutes);
+app.use(shopRoutes);
 app.use(authRoutes);
 
+app.use((req, res) => {
+    res.status(404).send('<h1>Page not found</h1><p><a href="/">Back to YourPrints</a></p>');
+});
 
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).send('<h1>Something went wrong</h1><p><a href="/">Back to YourPrints</a></p>');
+});
 
-
-//entity relations
-// Product.belongsTo(User,{constraints:true,onDelete:'CASCADE'});
-// Product.belongsTo(Wishlist,{constraints:true,onDelete:'CASCADE'});
-User.hasOne(Cart);
-User.hasOne(Wishlist);
-Cart.belongsTo(User);
-// Wishlist.hasMany(Product);
-// Cart.hasMany(Product);
-// Admin.hasMany(Product);
-Cart.belongsToMany(Product,{through:CartItem});
-Product.belongsToMany(Cart,{through:CartItem});
-Order.belongsToMany(Product,{through:OrderItem});
-
-
-sequelize
-.sync({force:false})
-.then(result=>{
-    console.log('database connected successfully!');
-    app.listen(3000,()=>{
-        console.log("Server is running on 3000");
-    });
-})
-// .then(cart=>{
-
-// })
-// .then()
-// .catch(err=>console.log(err)
-// .sync({force:true})
-// .then(result=>{
-//  return User.findByPk(1);
-// }) 
-// .then(user=>{
-//     if(!user){
-//         return User.create({username:'Runali',email:'runali@gmail.com'});
-//     }
-//     return user;  
-// })
-// .then(user=>{
-//     return user.createCart();
-// })   
-// .then(cart=>{
-//     app.listen(3000);
-// })
-// .catch(err=>{
-//     console.log(err);
-// });
-    
+export default app;

@@ -12,8 +12,8 @@
           <li><a href="/contact" class="nav-link px-2 link-body-emphasis">Contact</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" id="search" class="form-control bg-light" placeholder="Search..." aria-label="Search">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/searchProducts" method="get">
+          <input type="search" name="Item" id="search" class="form-control bg-light" placeholder="Search..." aria-label="Search">
         </form>
         <div class="cart mx-3">
           <ion-icon name="bag-handle"></ion-icon>
@@ -55,8 +55,8 @@
   </div>
   <div class="header-right d-flex">
     <span class="search-bar d-flex">
-      <form role="search" class="search-input">
-          <input type="search" class="p-1" placeholder="Search...">
+      <form role="search" class="search-input" action="/searchProducts" method="get">
+          <input type="search" name="Item" class="p-1" placeholder="Search...">
       </form>
       <button class="header-icon-btn search-btn">
           <span class="material-symbols-outlined">search</span>

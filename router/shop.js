@@ -1,7 +1,7 @@
 
-const express = require('express');
+import express from 'express';
 
-const shopController = require('../controller/shopController');
+import * as shopController from '../controller/shopController.js';
 
 const router = express.Router();
 
@@ -31,7 +31,8 @@ router.post('/product/category',shopController.postProductCategory);
 
 router.get('/customise',shopController.getCustomise);
 //searching functionality 
-router.post("/searchProducts",shopController.postSearchProducts);
+router.get('/searchProducts',shopController.postSearchProducts);
+router.post('/searchProducts',shopController.postSearchProducts);
 
 // router.post('/searchProducts',shopController.postSearchProducts);
 
@@ -43,4 +44,4 @@ router.get('/checkout',shopController.getCheckout);
 router.post('/remove',shopController.postRemoveCartItem);
 
 router.post('/removeWishlist',shopController.postRemoveWishlistItem);
-module.exports = router;
+export default router;

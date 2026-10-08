@@ -1,8 +1,8 @@
-const express = require('express');
+import express from 'express';
 
 const router = express.Router();
 
-const adminController = require('../controller/adminController');
+import * as adminController from '../controller/adminController.js';
 
 router.get('/admin/profile',adminController.getAdminProfile);
 
@@ -24,4 +24,4 @@ router.get('/admin/orders',adminController.getOrders);
 
 router.get('/admin/payments',adminController.getPayment);
 
-module.exports = router;
+export default router;
