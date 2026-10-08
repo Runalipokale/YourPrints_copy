@@ -6,7 +6,7 @@
     <!-- <%- include('./includes/admin-sidebar.ejs') %>   -->
         <div class="add-product-form mt-3 d-flex justify-content-center align-items-center">
             <div class="add-product-body p-5">
-                  <form action="/admin/editProduct/:productId" method="post">
+                  <form action="/admin/editProduct/<%= prods.productId %>" method="post">
                     <div class="field my-5">
                       <input type="text" name="title" id="" placeholder="<%=prods.title%>">
                     </div>

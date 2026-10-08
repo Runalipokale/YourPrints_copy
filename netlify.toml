@@ -1,0 +1,9 @@
+[build]
+  # Static files (CSS, JS, images) are copied into dist and served by the CDN.
+  # They're available both at the site root (/CSS/style.css) and under their folder name (/Assets/...).
+  command = "rm -rf dist && mkdir -p dist/Public dist/Assets && cp -r Public/. dist/ && cp -r Public/. dist/Public/ && cp -r Assets/. dist/ && cp -r Assets/. dist/Assets/"
+  publish = "dist"
+
+[functions]
+  # EJS templates are rendered inside the app function
+  included_files = ["views/**"]

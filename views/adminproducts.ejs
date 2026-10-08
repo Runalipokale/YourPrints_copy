@@ -20,7 +20,7 @@
                   <h6 class="product-name"><%= product.title %></h6>
                   <h6 class="text-secondary"><%= product.description %></h6>
                   <span class="price"><%= product.price %></span>
-                  <form action="/admin/editProduct/:productId" method="GET">
+                  <form action="/admin/editProduct/<%= product.productId %>" method="GET">
                   <input type="hidden" value="<%= product.productId %>" name="productId">
                   <input type="hidden" value="<%= product.title %>" name="title">
                   <input type="hidden" value="<%= product.price %>" name="price">
